@@ -1,8 +1,8 @@
 aid: gnews
 name: GNews
 description: >-
-  A powerful REST News API to search for current and historical articles and get
-  trending news in over 22 languages across 30 countries from 60,000  sources.
+  A powerful REST News API to search for current and historical articles and get trending
+  news in over 22 languages across 30 countries from 60,000 sources.
 type: Index
 position: Consumer
 access: 3rd-Party
