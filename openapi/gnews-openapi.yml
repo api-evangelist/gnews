@@ -1,0 +1,280 @@
+openapi: 3.0.3
+info:
+  title: GNews API
+  description: >-
+    A REST News API to search current and historical articles and retrieve
+    trending news in over 22 languages across 30 countries from 60,000+ sources.
+  version: '4.0'
+  contact:
+    name: GNews
+    url: https://gnews.io/
+servers:
+  - url: https://gnews.io/api/v4
+    description: Production
+security:
+  - apikeyQuery: []
+paths:
+  /search:
+    get:
+      summary: Search articles
+      description: >-
+        Search for current and historical news articles by keyword with
+        filtering by language, country, category, source, date range, and more.
+      operationId: searchArticles
+      tags:
+        - Search
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: >-
+            Keywords or phrase to search for. Supports logical operators
+            (AND, OR, NOT) and exact phrase matching with quotes.
+          schema:
+            type: string
+        - name: lang
+          in: query
+          description: ISO 639-1 two-letter language code.
+          schema:
+            type: string
+            example: en
+        - name: country
+          in: query
+          description: ISO 3166-1 alpha-2 two-letter country code.
+          schema:
+            type: string
+            example: us
+        - name: max
+          in: query
+          description: Maximum number of articles to return (1-100).
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
+        - name: in
+          in: query
+          description: >-
+            Comma-separated list of attributes to search in
+            (title, description, content).
+          schema:
+            type: string
+            example: title,description
+        - name: nullable
+          in: query
+          description: Comma-separated list of attributes allowed to be null.
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: Lower bound publish date (YYYY-MM-DDThh:mm:ssZ).
+          schema:
+            type: string
+            format: date-time
+        - name: to
+          in: query
+          description: Upper bound publish date (YYYY-MM-DDThh:mm:ssZ).
+          schema:
+            type: string
+            format: date-time
+        - name: sortby
+          in: query
+          description: Sort order (publishedAt or relevance).
+          schema:
+            type: string
+            enum: [publishedAt, relevance]
+            default: publishedAt
+        - name: page
+          in: query
+          description: Page number for pagination (paid plans).
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: expand
+          in: query
+          description: >-
+            Set to "content" to retrieve the full article content
+            (paid plans).
+          schema:
+            type: string
+            enum: [content]
+        - name: apikey
+          in: query
+          required: true
+          description: API key for authentication.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful search response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArticleResponse'
+        '400':
+          description: Bad request.
+        '401':
+          description: Invalid API key.
+        '403':
+          description: Plan limitation reached.
+        '429':
+          description: Too many requests.
+        '500':
+          description: Server error.
+  /top-headlines:
+    get:
+      summary: Get top headlines
+      description: >-
+        Retrieve current top news headlines by category, country, and language.
+      operationId: topHeadlines
+      tags:
+        - Headlines
+      parameters:
+        - name: category
+          in: query
+          description: News category.
+          schema:
+            type: string
+            enum:
+              - general
+              - world
+              - nation
+              - business
+              - technology
+              - entertainment
+              - sports
+              - science
+              - health
+            default: general
+        - name: lang
+          in: query
+          description: ISO 639-1 two-letter language code.
+          schema:
+            type: string
+            example: en
+        - name: country
+          in: query
+          description: ISO 3166-1 alpha-2 two-letter country code.
+          schema:
+            type: string
+            example: us
+        - name: max
+          in: query
+          description: Maximum number of articles to return (1-100).
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
+        - name: nullable
+          in: query
+          description: Comma-separated list of attributes allowed to be null.
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: Lower bound publish date.
+          schema:
+            type: string
+            format: date-time
+        - name: to
+          in: query
+          description: Upper bound publish date.
+          schema:
+            type: string
+            format: date-time
+        - name: q
+          in: query
+          description: Optional keyword filter applied to headlines.
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page number for pagination (paid plans).
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: expand
+          in: query
+          description: Set to "content" for full article content (paid plans).
+          schema:
+            type: string
+            enum: [content]
+        - name: apikey
+          in: query
+          required: true
+          description: API key for authentication.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful headlines response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArticleResponse'
+        '400':
+          description: Bad request.
+        '401':
+          description: Invalid API key.
+        '403':
+          description: Plan limitation reached.
+        '429':
+          description: Too many requests.
+        '500':
+          description: Server error.
+components:
+  securitySchemes:
+    apikeyQuery:
+      type: apiKey
+      in: query
+      name: apikey
+  schemas:
+    ArticleResponse:
+      type: object
+      properties:
+        totalArticles:
+          type: integer
+          description: Total number of articles matching the query.
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
+    Article:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+        url:
+          type: string
+          format: uri
+        image:
+          type: string
+          format: uri
+        publishedAt:
+          type: string
+          format: date-time
+        lang:
+          type: string
+        source:
+          $ref: '#/components/schemas/Source'
+    Source:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        country:
+          type: string
+        lang:
+          type: string
