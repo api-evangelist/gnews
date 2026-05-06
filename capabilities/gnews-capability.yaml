@@ -1,0 +1,298 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: GNews API
+  description: A REST News API to search current and historical articles and retrieve trending news in over 22 languages across
+    30 countries from 60,000+ sources.
+  tags:
+  - Gnews
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: gnews
+    baseUri: https://gnews.io/api/v4
+    description: GNews API HTTP API.
+    authentication:
+      type: apikey
+      in: query
+      name: apikey
+      value: '{{GNEWS_TOKEN}}'
+    resources:
+    - name: search
+      path: /search
+      operations:
+      - name: searcharticles
+        method: GET
+        description: Search articles
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          required: true
+          description: Keywords or phrase to search for. Supports logical operators (AND, OR, NOT) and exact phrase matching
+            with quotes.
+        - name: lang
+          in: query
+          type: string
+          description: ISO 639-1 two-letter language code.
+        - name: country
+          in: query
+          type: string
+          description: ISO 3166-1 alpha-2 two-letter country code.
+        - name: max
+          in: query
+          type: integer
+          description: Maximum number of articles to return (1-100).
+        - name: in
+          in: query
+          type: string
+          description: Comma-separated list of attributes to search in (title, description, content).
+        - name: nullable
+          in: query
+          type: string
+          description: Comma-separated list of attributes allowed to be null.
+        - name: from
+          in: query
+          type: string
+          description: Lower bound publish date (YYYY-MM-DDThh:mm:ssZ).
+        - name: to
+          in: query
+          type: string
+          description: Upper bound publish date (YYYY-MM-DDThh:mm:ssZ).
+        - name: sortby
+          in: query
+          type: string
+          description: Sort order (publishedAt or relevance).
+        - name: page
+          in: query
+          type: integer
+          description: Page number for pagination (paid plans).
+        - name: expand
+          in: query
+          type: string
+          description: Set to "content" to retrieve the full article content (paid plans).
+        - name: apikey
+          in: query
+          type: string
+          required: true
+          description: API key for authentication.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: top-headlines
+      path: /top-headlines
+      operations:
+      - name: topheadlines
+        method: GET
+        description: Get top headlines
+        inputParameters:
+        - name: category
+          in: query
+          type: string
+          description: News category.
+        - name: lang
+          in: query
+          type: string
+          description: ISO 639-1 two-letter language code.
+        - name: country
+          in: query
+          type: string
+          description: ISO 3166-1 alpha-2 two-letter country code.
+        - name: max
+          in: query
+          type: integer
+          description: Maximum number of articles to return (1-100).
+        - name: nullable
+          in: query
+          type: string
+          description: Comma-separated list of attributes allowed to be null.
+        - name: from
+          in: query
+          type: string
+          description: Lower bound publish date.
+        - name: to
+          in: query
+          type: string
+          description: Upper bound publish date.
+        - name: q
+          in: query
+          type: string
+          description: Optional keyword filter applied to headlines.
+        - name: page
+          in: query
+          type: integer
+          description: Page number for pagination (paid plans).
+        - name: expand
+          in: query
+          type: string
+          description: Set to "content" for full article content (paid plans).
+        - name: apikey
+          in: query
+          type: string
+          required: true
+          description: API key for authentication.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: gnews-rest
+    description: REST adapter for GNews API.
+    resources:
+    - path: /search
+      name: searcharticles
+      operations:
+      - method: GET
+        name: searcharticles
+        description: Search articles
+        call: gnews.searcharticles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /top-headlines
+      name: topheadlines
+      operations:
+      - method: GET
+        name: topheadlines
+        description: Get top headlines
+        call: gnews.topheadlines
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: gnews-mcp
+    transport: http
+    description: MCP adapter for GNews API for AI agent use.
+    tools:
+    - name: searcharticles
+      description: Search articles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gnews.searcharticles
+      with:
+        q: tools.q
+        lang: tools.lang
+        country: tools.country
+        max: tools.max
+        in: tools.in
+        nullable: tools.nullable
+        from: tools.from
+        to: tools.to
+        sortby: tools.sortby
+        page: tools.page
+        expand: tools.expand
+        apikey: tools.apikey
+      inputParameters:
+      - name: q
+        type: string
+        description: Keywords or phrase to search for. Supports logical operators (AND, OR, NOT) and exact phrase matching
+          with quotes.
+        required: true
+      - name: lang
+        type: string
+        description: ISO 639-1 two-letter language code.
+      - name: country
+        type: string
+        description: ISO 3166-1 alpha-2 two-letter country code.
+      - name: max
+        type: integer
+        description: Maximum number of articles to return (1-100).
+      - name: in
+        type: string
+        description: Comma-separated list of attributes to search in (title, description, content).
+      - name: nullable
+        type: string
+        description: Comma-separated list of attributes allowed to be null.
+      - name: from
+        type: string
+        description: Lower bound publish date (YYYY-MM-DDThh:mm:ssZ).
+      - name: to
+        type: string
+        description: Upper bound publish date (YYYY-MM-DDThh:mm:ssZ).
+      - name: sortby
+        type: string
+        description: Sort order (publishedAt or relevance).
+      - name: page
+        type: integer
+        description: Page number for pagination (paid plans).
+      - name: expand
+        type: string
+        description: Set to "content" to retrieve the full article content (paid plans).
+      - name: apikey
+        type: string
+        description: API key for authentication.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: topheadlines
+      description: Get top headlines
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gnews.topheadlines
+      with:
+        category: tools.category
+        lang: tools.lang
+        country: tools.country
+        max: tools.max
+        nullable: tools.nullable
+        from: tools.from
+        to: tools.to
+        q: tools.q
+        page: tools.page
+        expand: tools.expand
+        apikey: tools.apikey
+      inputParameters:
+      - name: category
+        type: string
+        description: News category.
+      - name: lang
+        type: string
+        description: ISO 639-1 two-letter language code.
+      - name: country
+        type: string
+        description: ISO 3166-1 alpha-2 two-letter country code.
+      - name: max
+        type: integer
+        description: Maximum number of articles to return (1-100).
+      - name: nullable
+        type: string
+        description: Comma-separated list of attributes allowed to be null.
+      - name: from
+        type: string
+        description: Lower bound publish date.
+      - name: to
+        type: string
+        description: Upper bound publish date.
+      - name: q
+        type: string
+        description: Optional keyword filter applied to headlines.
+      - name: page
+        type: integer
+        description: Page number for pagination (paid plans).
+      - name: expand
+        type: string
+        description: Set to "content" for full article content (paid plans).
+      - name: apikey
+        type: string
+        description: API key for authentication.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GNEWS_TOKEN: GNEWS_TOKEN
