@@ -34,7 +34,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.gnews.io/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://docs.gnews.io/#introduction
       - type: OpenAPI
         url: >-
@@ -44,7 +44,7 @@ common:
     url: https://gnews.io/
   - type: Documentation
     url: https://docs.gnews.io/
-  - type: Sign Up
+  - type: SignUp
     url: https://gnews.io/#register
   - type: Pricing
     url: https://gnews.io/#pricing
