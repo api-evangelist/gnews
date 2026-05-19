@@ -1,0 +1,142 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: GNews API — Headlines
+  description: 'GNews API — Headlines. 1 operations. Lead operation: Get top headlines. Self-contained Naftiko capability
+    covering one Gnews business surface.'
+  tags:
+  - Gnews
+  - Headlines
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GNEWS_API_KEY: GNEWS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gnews-headlines
+    baseUri: https://gnews.io/api/v4
+    description: GNews API — Headlines business capability. Self-contained, no shared references.
+    resources:
+    - name: top-headlines
+      path: /top-headlines
+      operations:
+      - name: topheadlines
+        method: GET
+        description: Get top headlines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: category
+          in: query
+          type: string
+          description: News category.
+        - name: lang
+          in: query
+          type: string
+          description: ISO 639-1 two-letter language code.
+        - name: country
+          in: query
+          type: string
+          description: ISO 3166-1 alpha-2 two-letter country code.
+        - name: max
+          in: query
+          type: integer
+          description: Maximum number of articles to return (1-100).
+        - name: nullable
+          in: query
+          type: string
+          description: Comma-separated list of attributes allowed to be null.
+        - name: from
+          in: query
+          type: string
+          description: Lower bound publish date.
+        - name: to
+          in: query
+          type: string
+          description: Upper bound publish date.
+        - name: q
+          in: query
+          type: string
+          description: Optional keyword filter applied to headlines.
+        - name: page
+          in: query
+          type: integer
+          description: Page number for pagination (paid plans).
+        - name: expand
+          in: query
+          type: string
+          description: Set to "content" for full article content (paid plans).
+        - name: apikey
+          in: query
+          type: string
+          description: API key for authentication.
+          required: true
+    authentication:
+      type: apikey
+      key: apikey
+      value: '{{env.GNEWS_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: gnews-headlines-rest
+    port: 8080
+    description: REST adapter for GNews API — Headlines. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/top-headlines
+      name: top-headlines
+      description: REST surface for top-headlines.
+      operations:
+      - method: GET
+        name: topheadlines
+        description: Get top headlines
+        call: gnews-headlines.topheadlines
+        with:
+          category: rest.category
+          lang: rest.lang
+          country: rest.country
+          max: rest.max
+          nullable: rest.nullable
+          from: rest.from
+          to: rest.to
+          q: rest.q
+          page: rest.page
+          expand: rest.expand
+          apikey: rest.apikey
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gnews-headlines-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for GNews API — Headlines. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-top-headlines
+      description: Get top headlines
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gnews-headlines.topheadlines
+      with:
+        category: tools.category
+        lang: tools.lang
+        country: tools.country
+        max: tools.max
+        nullable: tools.nullable
+        from: tools.from
+        to: tools.to
+        q: tools.q
+        page: tools.page
+        expand: tools.expand
+        apikey: tools.apikey
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,150 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: GNews API — Search
+  description: 'GNews API — Search. 1 operations. Lead operation: Search articles. Self-contained Naftiko capability covering
+    one Gnews business surface.'
+  tags:
+  - Gnews
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GNEWS_API_KEY: GNEWS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gnews-search
+    baseUri: https://gnews.io/api/v4
+    description: GNews API — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: search
+      path: /search
+      operations:
+      - name: searcharticles
+        method: GET
+        description: Search articles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Keywords or phrase to search for. Supports logical operators (AND, OR, NOT) and exact phrase matching
+            with quotes.
+          required: true
+        - name: lang
+          in: query
+          type: string
+          description: ISO 639-1 two-letter language code.
+        - name: country
+          in: query
+          type: string
+          description: ISO 3166-1 alpha-2 two-letter country code.
+        - name: max
+          in: query
+          type: integer
+          description: Maximum number of articles to return (1-100).
+        - name: in
+          in: query
+          type: string
+          description: Comma-separated list of attributes to search in (title, description, content).
+        - name: nullable
+          in: query
+          type: string
+          description: Comma-separated list of attributes allowed to be null.
+        - name: from
+          in: query
+          type: string
+          description: Lower bound publish date (YYYY-MM-DDThh:mm:ssZ).
+        - name: to
+          in: query
+          type: string
+          description: Upper bound publish date (YYYY-MM-DDThh:mm:ssZ).
+        - name: sortby
+          in: query
+          type: string
+          description: Sort order (publishedAt or relevance).
+        - name: page
+          in: query
+          type: integer
+          description: Page number for pagination (paid plans).
+        - name: expand
+          in: query
+          type: string
+          description: Set to "content" to retrieve the full article content (paid plans).
+        - name: apikey
+          in: query
+          type: string
+          description: API key for authentication.
+          required: true
+    authentication:
+      type: apikey
+      key: apikey
+      value: '{{env.GNEWS_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: gnews-search-rest
+    port: 8080
+    description: REST adapter for GNews API — Search. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/search
+      name: search
+      description: REST surface for search.
+      operations:
+      - method: GET
+        name: searcharticles
+        description: Search articles
+        call: gnews-search.searcharticles
+        with:
+          q: rest.q
+          lang: rest.lang
+          country: rest.country
+          max: rest.max
+          in: rest.in
+          nullable: rest.nullable
+          from: rest.from
+          to: rest.to
+          sortby: rest.sortby
+          page: rest.page
+          expand: rest.expand
+          apikey: rest.apikey
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gnews-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for GNews API — Search. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: search-articles
+      description: Search articles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gnews-search.searcharticles
+      with:
+        q: tools.q
+        lang: tools.lang
+        country: tools.country
+        max: tools.max
+        in: tools.in
+        nullable: tools.nullable
+        from: tools.from
+        to: tools.to
+        sortby: tools.sortby
+        page: tools.page
+        expand: tools.expand
+        apikey: tools.apikey
+      outputParameters:
+      - type: object
+        mapping: $.
