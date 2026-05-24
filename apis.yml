@@ -49,6 +49,8 @@ common:
   url: https://gnews.io/#register
 - type: Pricing
   url: https://gnews.io/#pricing
+- type: LLMsTxt
+  url: https://gnews.io/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
