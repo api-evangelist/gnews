@@ -1,0 +1,198 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GNews API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gnews.io/api/v4/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Keywords or phrase to search for. Supports logical operators (AND, OR, NOT) and exact phrase matching with quotes."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "ISO 639-1 two-letter language code."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "ISO 3166-1 alpha-2 two-letter country code."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of articles to return (1-100)."
+              },
+              {
+                "name": "in",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of attributes to search in (title, description, content)."
+              },
+              {
+                "name": "nullable",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of attributes allowed to be null."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Lower bound publish date (YYYY-MM-DDThh:mm:ssZ)."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Upper bound publish date (YYYY-MM-DDThh:mm:ssZ)."
+              },
+              {
+                "name": "sortby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order (publishedAt or relevance)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination (paid plans)."
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query",
+                "description": "Set to \"content\" to retrieve the full article content (paid plans)."
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query",
+                "description": "API key for authentication."
+              }
+            ]
+          },
+          "docs": "Search for current and historical news articles by keyword with filtering by language, country, category, source, date range, and more."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Headlines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get top headlines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gnews.io/api/v4/top-headlines",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "News category."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "ISO 639-1 two-letter language code."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "ISO 3166-1 alpha-2 two-letter country code."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of articles to return (1-100)."
+              },
+              {
+                "name": "nullable",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of attributes allowed to be null."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Lower bound publish date."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Upper bound publish date."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Optional keyword filter applied to headlines."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination (paid plans)."
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query",
+                "description": "Set to \"content\" for full article content (paid plans)."
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query",
+                "description": "API key for authentication."
+              }
+            ]
+          },
+          "docs": "Retrieve current top news headlines by category, country, and language."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
