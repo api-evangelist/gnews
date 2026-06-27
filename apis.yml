@@ -43,11 +43,11 @@ common:
     url: https://gnews.io/
   - type: Documentation
     url: https://docs.gnews.io/
-  - type: SignUp
+  - type: Signup
     url: https://gnews.io/#register
   - type: Pricing
     url: https://gnews.io/#pricing
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://gnews.io/llms.txt
 maintainers:
   - FN: Kin Lane
