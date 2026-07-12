@@ -37,6 +37,10 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/gnews/refs/heads/main/openapi/gnews-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/gnews-domain-security.yml
+  - type: Authentication
+    url: authentication/gnews-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/gnews
   - type: Website
