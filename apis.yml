@@ -37,6 +37,8 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/gnews/refs/heads/main/openapi/gnews-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/gnews-agentic-access.yml
   - type: DomainSecurity
     url: security/gnews-domain-security.yml
   - type: Authentication
