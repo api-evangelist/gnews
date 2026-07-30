@@ -4,9 +4,22 @@ description: >-
   A REST News API to search current and historical articles and retrieve trending news in over 22 languages across 30
   countries from 60,000+ sources.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/gnews.png
 tags:
   - Articles
   - Headlines
@@ -17,25 +30,34 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/gnews/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: gnews:gnews
-    name: GNews
-    description: >-
-      A REST News API to search current and historical articles and retrieve trending news in over 22 languages across
-      30 countries from 60,000+ sources.
-    humanURL: https://gnews.io/
-    baseURL: https://gnews.io/api/v4
-    tags:
-      - Articles
-      - Headlines
-      - News
-      - Search
-    properties:
-      - type: Documentation
-        url: https://docs.gnews.io/
-      - type: GettingStarted
-        url: https://docs.gnews.io/#introduction
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/gnews/refs/heads/main/openapi/gnews-openapi.yml
+- aid: gnews:gnews-headlines-api
+  name: GNews Headlines API
+  description: The Headlines API from GNews — 1 operation(s) for headlines.
+  humanURL: https://gnews.io/
+  baseURL: https://gnews.io/api/v4
+  tags:
+  - Headlines
+  properties:
+  - type: OpenAPI
+    url: openapi/gnews-headlines-api-openapi.yml
+  - type: Documentation
+    url: https://docs.gnews.io/
+  - type: GettingStarted
+    url: https://docs.gnews.io/#introduction
+- aid: gnews:gnews-search-api
+  name: GNews Search API
+  description: The Search API from GNews — 1 operation(s) for search.
+  humanURL: https://gnews.io/
+  baseURL: https://gnews.io/api/v4
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/gnews-search-api-openapi.yml
+  - type: Documentation
+    url: https://docs.gnews.io/
+  - type: GettingStarted
+    url: https://docs.gnews.io/#introduction
 common:
   - type: AgenticAccess
     url: agentic-access/gnews-agentic-access.yml
