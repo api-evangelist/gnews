@@ -1,0 +1,16 @@
+{
+  "provider": "gnews",
+  "sources": [
+    "gnews-headlines-api-openapi.yml",
+    "gnews-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "gnews-headlines-api-openapi.yml",
+    "gnews-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
