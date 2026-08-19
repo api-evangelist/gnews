@@ -1,0 +1,71 @@
+# GNews API
+
+> GNews API is a simple, developer-friendly REST API that aggregates news articles from over 80,000 sources across 41 languages and 71 countries. It is designed for developers, researchers, and businesses that need to integrate global news data into their applications, dashboards, or AI pipelines.
+
+## About
+
+- **Product:** GNews API
+- **Website:** https://gnews.io/
+- **Documentation:** https://docs.gnews.io/
+- **Type:** SaaS news aggregation API
+- **Coverage:** 80,000+ sources, 41 languages, 71 countries
+- **Output format:** JSON
+
+## Endpoints
+
+- `GET https://gnews.io/api/v4/search` — Full-text search across global news articles. Supports query operators, language, country, category, date range, and sorting.
+- `GET https://gnews.io/api/v4/top-headlines` — Latest top headlines, filterable by category (general, world, nation, business, technology, entertainment, sports, science, health), language, and country.
+
+Authentication is done via the `apikey` query parameter or the `X-Api-Key` HTTP header.
+
+## Core features
+
+- Real-time news aggregation from mainstream and niche publishers
+- Full-text search with advanced query operators (AND, OR, NOT, quoted phrases)
+- Filtering by language (41 supported), country (71 supported), and category
+- Historical article access depending on plan
+- Configurable article count per request (up to 100 with higher tiers)
+- Rate-limited API access per plan
+
+## Pricing
+
+*Note: All prices are in euros (EUR).*
+
+- **Free** — €0/month. 100 requests/day, 1 request/second, 10 articles per request. For development and testing.
+- **Essential** — €49.99/month (or €479.99/year). 1,000 requests/day, 10 requests/second, 25 articles per request.
+- **Business** — €99.99/month (or €959.99/year). 5,000 requests/day, 10 requests/second, 50 articles per request.
+- **Enterprise** — €249.99/month (or €2,399.99/year). 25,000 requests/day, 10 requests/second, 100 articles per request.
+- **Custom** — Higher volumes available on request.
+
+Full details: https://gnews.io/pricing
+
+## Official SDKs and libraries
+
+- JavaScript / Node.js: https://www.npmjs.com/package/gnews-io-js
+- PHP: https://packagist.org/packages/gnews-io/gnews-io-php
+- Community libraries: https://gnews.io/libraries
+
+## Key pages
+
+- Home: https://gnews.io/
+- Pricing: https://gnews.io/pricing
+- Libraries & SDKs: https://gnews.io/libraries
+- Sources: https://gnews.io/sources
+- Compare GNews API vs alternatives: https://gnews.io/why-choose-gnews-api-over-news-api-or-newsapiai
+- Google News API replacement: https://gnews.io/google-news-api
+- Contact: https://gnews.io/contact
+- Documentation: https://docs.gnews.io/
+
+## Typical use cases
+
+- News aggregation dashboards
+- Market and brand monitoring
+- AI/LLM retrieval-augmented pipelines
+- Academic and media research
+- Country-specific or language-specific news feeds
+- Trend and topic tracking
+
+## Legal
+
+- Terms of Service (includes Refund Policy): https://gnews.io/terms
+- Privacy Policy: https://gnews.io/privacy

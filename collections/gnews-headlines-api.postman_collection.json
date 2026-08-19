@@ -1,0 +1,625 @@
+{
+  "item": [
+    {
+      "id": "4bd44888-69cb-4f7c-a6f3-6226512f2338",
+      "name": "Headlines",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "621603af-4042-4a6f-ba4c-ab9185ecace0",
+          "name": "Get top headlines",
+          "request": {
+            "name": "Get top headlines",
+            "description": {
+              "content": "Retrieve current top news headlines by category, country, and language.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "top-headlines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "general",
+                  "description": "News category."
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "ISO 639-1 two-letter language code."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "ISO 3166-1 alpha-2 two-letter country code."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "10",
+                  "description": "Maximum number of articles to return (1-100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "nullable",
+                  "value": "<string>",
+                  "description": "Comma-separated list of attributes allowed to be null."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Lower bound publish date."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "Upper bound publish date."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Optional keyword filter applied to headlines."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination (paid plans)."
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Set to \"content\" for full article content (paid plans)."
+                },
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) API key for authentication."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac3337eb-468c-480f-aaf5-58d1cef19284",
+              "name": "Successful headlines response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "top-headlines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "general"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalArticles\": 6997,\n  \"articles\": [\n    {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"content\": \"string\",\n      \"url\": \"https://aPJiTZmfMynZnERrTKuhlnEMwqudmCga.izkgGIj1O0LjX4rk2h4wND.nsDPyS7iNq7iSfxLozQDmXo-ntR9wa-6Z9bmvCrVE04GKjZk7-RQ69\",\n      \"image\": \"https://dpMBMIUqvAYoNu.diKHLUW6z,iMVOMKjWg-mt8M8KYuPLlqRy4wpWcH-fq1\",\n      \"publishedAt\": \"1960-01-20T19:39:51.965Z\",\n      \"lang\": \"string\",\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"http://oswTQAekd.slbOXE47.2doIJo--Ut20uvsApEL6+7GHF7699urciPVZHail\",\n        \"country\": \"string\",\n        \"lang\": \"string\"\n      }\n    },\n    {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"content\": \"string\",\n      \"url\": \"http://jeGoHZzUOQYXebZIpPzsOqWyBNDWbzD.qhfkNuavM1EF\",\n      \"image\": \"http://YUnIrhSFdGJzGb.njybBgghDsfjLC7Ws\",\n      \"publishedAt\": \"1955-11-12T02:51:21.426Z\",\n      \"lang\": \"string\",\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"https://JPerpPtGFnZzlbvkqVd.rfi,mzDBhKPa,6peQMI1S,Oi,.DkovxvgcBQ64.AJcVNTUxjS\",\n        \"country\": \"string\",\n        \"lang\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a074fb9b-1aaf-4396-b6f5-69e6a18e0252",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "top-headlines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "general"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "25a65272-4c1a-4550-b03b-c671cc9733db",
+              "name": "Invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "top-headlines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "general"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "324aa364-8821-4e8e-bc15-3b179ff62ea8",
+              "name": "Plan limitation reached.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "top-headlines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "general"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "86bbf9c6-8c2e-4a83-8c31-2dcbfced27c4",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "top-headlines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "general"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28ab23fc-c3b6-48d7-9f4c-b857a74be0ff",
+              "name": "Server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "top-headlines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "general"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gnews.io/api/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c6451e6f-20a8-40ee-b182-10c08cfcc512",
+    "name": "GNews Headlines API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST News API to search current and historical articles and retrieve trending news in over 22 languages across 30 countries from 60,000+ sources.\n\nContact Support:\n Name: GNews",
+      "type": "text/plain"
+    }
+  }
+}

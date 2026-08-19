@@ -1,0 +1,655 @@
+{
+  "item": [
+    {
+      "id": "4b64c67e-9238-4910-9097-8076f4e711cc",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3bd00075-61c9-4f37-8f93-1051a6d8c6cd",
+          "name": "Search articles",
+          "request": {
+            "name": "Search articles",
+            "description": {
+              "content": "Search for current and historical news articles by keyword with filtering by language, country, category, source, date range, and more.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Keywords or phrase to search for. Supports logical operators (AND, OR, NOT) and exact phrase matching with quotes."
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "ISO 639-1 two-letter language code."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "ISO 3166-1 alpha-2 two-letter country code."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "10",
+                  "description": "Maximum number of articles to return (1-100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "in",
+                  "value": "<string>",
+                  "description": "Comma-separated list of attributes to search in (title, description, content)."
+                },
+                {
+                  "disabled": false,
+                  "key": "nullable",
+                  "value": "<string>",
+                  "description": "Comma-separated list of attributes allowed to be null."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Lower bound publish date (YYYY-MM-DDThh:mm:ssZ)."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "Upper bound publish date (YYYY-MM-DDThh:mm:ssZ)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortby",
+                  "value": "publishedAt",
+                  "description": "Sort order (publishedAt or relevance)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination (paid plans)."
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "Set to \"content\" to retrieve the full article content (paid plans)."
+                },
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) API key for authentication."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9a9b6db-86cb-46c3-bfe0-4c82e273e796",
+              "name": "Successful search response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "in",
+                      "value": "title,description"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sortby",
+                      "value": "publishedAt"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalArticles\": 9313,\n  \"articles\": [\n    {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"content\": \"string\",\n      \"url\": \"https://yLRdkQm.wmquTTW.DzK9ZCkoWQldZK+RUKt1FO0xg1fNmLZtZQS578BI1DmniFQCSm\",\n      \"image\": \"http://aPcECvUGjpDS.tgiBOEBzPDX0GBP908MFJFya8fTxXD\",\n      \"publishedAt\": \"1998-03-31T17:28:35.139Z\",\n      \"lang\": \"string\",\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"http://VwvPHlPk.agztJI8rkJjO67u6xKi8OUh\",\n        \"country\": \"string\",\n        \"lang\": \"string\"\n      }\n    },\n    {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"content\": \"string\",\n      \"url\": \"http://txtdkSbCs.gztISuhinJKo1SftdPeGA\",\n      \"image\": \"https://tJjvgsRAxWRYZyVUzboLJuTBEmXJGAMr.lciCtjX3BNj-IpBAUJsCIyXrOVj5\",\n      \"publishedAt\": \"1954-01-05T10:45:05.314Z\",\n      \"lang\": \"string\",\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"http://QMIBNKaFlmjQEQFyVkQbfOPgDBKnVk.yjxll,c0Kuvn+jevH3bWMigyPuN7zdOwsNrAQOUCuxGV+rbBD\",\n        \"country\": \"string\",\n        \"lang\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71926f47-47c2-4b98-8280-700110f9b12c",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "in",
+                      "value": "title,description"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sortby",
+                      "value": "publishedAt"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ff7b8a0-8382-43c7-b465-69292b0fc2f7",
+              "name": "Invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "in",
+                      "value": "title,description"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sortby",
+                      "value": "publishedAt"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a643306-3e2d-46ad-b3a3-b14c8518ec10",
+              "name": "Plan limitation reached.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "in",
+                      "value": "title,description"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sortby",
+                      "value": "publishedAt"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "333c2d1f-71c9-4161-8205-1a2e5257334c",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "in",
+                      "value": "title,description"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sortby",
+                      "value": "publishedAt"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02b623a6-7b3d-4ebe-99f5-85c652ba4c6b",
+              "name": "Server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "country",
+                      "value": "us"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "in",
+                      "value": "title,description"
+                    },
+                    {
+                      "key": "nullable",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sortby",
+                      "value": "publishedAt"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gnews.io/api/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9c9d19ae-9880-4ac1-9b42-22811916e254",
+    "name": "GNews Headlines Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST News API to search current and historical articles and retrieve trending news in over 22 languages across 30 countries from 60,000+ sources.\n\nContact Support:\n Name: GNews",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GNews Headlines API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Headlines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get top headlines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gnews.io/api/v4/top-headlines",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "News category."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "ISO 639-1 two-letter language code."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "ISO 3166-1 alpha-2 two-letter country code."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of articles to return (1-100)."
+              },
+              {
+                "name": "nullable",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of attributes allowed to be null."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Lower bound publish date."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Upper bound publish date."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Optional keyword filter applied to headlines."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination (paid plans)."
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query",
+                "description": "Set to \"content\" for full article content (paid plans)."
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query",
+                "description": "API key for authentication."
+              }
+            ]
+          },
+          "docs": "Retrieve current top news headlines by category, country, and language."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
