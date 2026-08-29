@@ -4,6 +4,18 @@ description: >-
   A REST News API to search current and historical articles and retrieve trending news in over 22 languages across 30
   countries from 60,000+ sources.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
