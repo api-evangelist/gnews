@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: GNews Headlines API
   description: A REST News API to search current and historical articles and retrieve trending news in over 22 languages across 30 countries from 60,000+ sources.
@@ -119,6 +119,20 @@ paths:
           description: Server error.
 components:
   schemas:
+    Source:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        country:
+          type: string
+        lang:
+          type: string
     ArticleResponse:
       type: object
       properties:
@@ -151,20 +165,6 @@ components:
           type: string
         source:
           $ref: '#/components/schemas/Source'
-    Source:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-          format: uri
-        country:
-          type: string
-        lang:
-          type: string
   securitySchemes:
     apikeyQuery:
       type: apiKey
