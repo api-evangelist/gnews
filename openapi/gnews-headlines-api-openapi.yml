@@ -119,6 +119,28 @@ paths:
           description: Server error.
 components:
   schemas:
+    Article:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+        url:
+          type: string
+          format: uri
+        image:
+          type: string
+          format: uri
+        publishedAt:
+          type: string
+          format: date-time
+        lang:
+          type: string
+        source:
+          $ref: '#/components/schemas/Source'
     Source:
       type: object
       properties:
@@ -143,28 +165,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Article'
-    Article:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        content:
-          type: string
-        url:
-          type: string
-          format: uri
-        image:
-          type: string
-          format: uri
-        publishedAt:
-          type: string
-          format: date-time
-        lang:
-          type: string
-        source:
-          $ref: '#/components/schemas/Source'
   securitySchemes:
     apikeyQuery:
       type: apiKey
