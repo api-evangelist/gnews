@@ -119,6 +119,20 @@ paths:
           description: Server error.
 components:
   schemas:
+    Source:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        country:
+          type: string
+        lang:
+          type: string
     Article:
       type: object
       properties:
@@ -141,20 +155,6 @@ components:
           type: string
         source:
           $ref: '#/components/schemas/Source'
-    Source:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-          format: uri
-        country:
-          type: string
-        lang:
-          type: string
     ArticleResponse:
       type: object
       properties:
