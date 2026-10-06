@@ -42,7 +42,7 @@ tags:
   - News
   - Search
 created: '2025-02-09'
-modified: '2026-05-19'
+modified: '2026-10-06'
 url: https://raw.githubusercontent.com/api-evangelist/gnews/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
@@ -75,6 +75,8 @@ apis:
   - type: GettingStarted
     url: https://docs.gnews.io/#introduction
 common:
+  - url: https://gnews.io/blog
+    type: Blog
   - type: AgenticAccess
     url: agentic-access/gnews-agentic-access.yml
   - type: DomainSecurity
