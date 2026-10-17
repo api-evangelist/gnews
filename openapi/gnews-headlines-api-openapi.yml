@@ -119,20 +119,16 @@ paths:
           description: Server error.
 components:
   schemas:
-    Source:
+    ArticleResponse:
       type: object
       properties:
-        id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-          format: uri
-        country:
-          type: string
-        lang:
-          type: string
+        totalArticles:
+          type: integer
+          description: Total number of articles matching the query.
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
     Article:
       type: object
       properties:
@@ -155,16 +151,20 @@ components:
           type: string
         source:
           $ref: '#/components/schemas/Source'
-    ArticleResponse:
+    Source:
       type: object
       properties:
-        totalArticles:
-          type: integer
-          description: Total number of articles matching the query.
-        articles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Article'
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        country:
+          type: string
+        lang:
+          type: string
   securitySchemes:
     apikeyQuery:
       type: apiKey
