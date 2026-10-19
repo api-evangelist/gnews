@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.gnews.io/openapi.yaml",
+ "requested_url": "https://docs.gnews.io/openapi.yaml",
+ "status": 200,
+ "content_type": "",
+ "bytes": 21286,
+ "sha256": "a951ac63ed7c3a8c6af789ef6d64e9b01833a01d30c7a6c128e111a37e8f8335",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
