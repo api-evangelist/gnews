@@ -1,4 +1,4 @@
-# GNews (gnews)
+# GNews
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,60 +66,118 @@
 
 A REST News API to search current and historical articles and retrieve trending news in over 22 languages across 30 countries from 60,000+ sources.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/gnews/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/gnews/refs/heads/main/apis.yml)
+**Areas:** Articles · Headlines · News · Search
 
-## Scope
+## GNews on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for GNews is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gnews/](https://apis.io/providers/gnews/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- Articles
-- Headlines
-- News
-- Search
+- [GNews Headlines API](https://apis.io/apis/gnews/gnews-headlines-api/) — The Headlines API from GNews — 1 operation(s) for headlines.
+- [GNews Search API](https://apis.io/apis/gnews/gnews-search-api/) — The Search API from GNews — 1 operation(s) for search.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-09
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### GNews
+Which operations an agent can call, which act, and which need a human in the loop.
 
-A REST News API to search current and historical articles and retrieve trending news in over 22 languages across 30 countries from 60,000+ sources.
+- [Gnews Agentic Access](https://apis.io/agentic-access/gnews/gnews-agentic-access/)
 
-- **Human URL:** [https://gnews.io/](https://gnews.io/)
-- **Base URL:** `https://gnews.io/api/v4`
+#### Collections (3)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Articles
-- Headlines
-- News
-- Search
+- [GNews API](https://apis.io/collections/gnews/open-gnews/)
+- [GNews Headlines API](https://apis.io/collections/gnews/open-gnews-headlines-api/)
+- [GNews Headlines Search API](https://apis.io/collections/gnews/open-gnews-search-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://docs.gnews.io/)
-- [Getting Started](https://docs.gnews.io/#introduction)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/gnews/refs/heads/main/openapi/gnews-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gnews.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gnews.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Gnews Authentication](https://apis.io/security/gnews/gnews-authentication/)
+- [Gnews Domain Security](https://apis.io/security/gnews/gnews-domain-security/)
 
-- [LinkedIn](https://www.linkedin.com/company/gnews)
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Gnews Plans Pricing](https://apis.io/plans/gnews/gnews-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Gnews Rate Limits](https://apis.io/rate-limits/gnews/gnews-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Gnews Finops](https://apis.io/finops/gnews/gnews-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://gnews.io/)
 - [Documentation](https://docs.gnews.io/)
-- [Sign Up](https://gnews.io/#register)
 - [Pricing](https://gnews.io/#pricing)
-- [L L Ms Txt](https://gnews.io/llms.txt)
+- [Blog](https://gnews.io/blog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 29.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 48.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 29.8 |
+| Access clarity | 26.3 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gnews/](https://apis.io/providers/gnews/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for GNews: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gnews/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
